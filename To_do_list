@@ -1,0 +1,37 @@
+
+SKLEP INTERNETOWY
+
+MySQL
+    Database Shop
+    Table Customers (imię, nazwisko, email, hasło, adres do wysyłki)
+    Table Admins (mail, hasło)
+    Table Products (nazwa, opis, cena, zdjęcia)
+    Table Pictures (nazwa pliku)
+    Table Orders (autor zamówienia, status zamówienia - oczekujące, złożone, opłacone, zrealizowane; zamówione przedmioty i ich liczba)
+
+HTML
+    Strona główna sklepu - index
+    Strona rejestracji - register
+    Panel użytkownika - customer
+    Strona zamówienia - order
+    Strona przedmiotu - product
+    Strona koszyka - basket
+    Panel administracyjny  - admin -(zarządzanie grupami, przedmiotami użytkownikami, zamówieniami)
+    dodawanie i usuwanie grup dla przedmiotów
+    dodanie lub usunięcie przedmiotu
+    zobaczenie użytkownika, jego zakupów, usunięcie użytkownikami
+    podgląd zamówienia(grupowanie statusem), zmiana statusu zamówienia, usunąć dane zamówienia, wysłać do klienta wiadomość dot jego zamówienia
+
+Do zrobienia
+
+    1. HTML wszystkich stron sklepu
+    2. kod do obsługi bazy danych
+    3. testy 4 klas po napisaniu kodu
+    4. etc
+
+Grupy produktów:
+    wooden chess
+    glass chess
+    metal chess
+    plastic chess
+    marble chess
