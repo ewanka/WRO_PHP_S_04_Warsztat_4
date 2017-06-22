@@ -10,5 +10,48 @@
 
 Class Product
 {
+    private $id;
+    private $name;
+    private $price;
+    
+    public function __construct($name, $price, $id=null)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->price = $price;
+        
+    }
+
+        public static function findAll(PDO $connection) // przekazać połączenie
+    {
+        $products[];
+        $result = $connection->query('SELECT * FROM `product`');
+        
+        foreach ($result->fetchAll() as $row){
+            $products[] = new Product($row['name'], 
+                                      $row['price'], 
+                                      $row['id']
+                                      );
+        }
+        
+        return $products;
+    }
+
+        public function getName()
+    {
+        return 'Szachy'; //ma być pobierane z atrybutu
+        
+    }
+    
+    function getId()
+    {
+        return $this->id;
+    }
+
+    function getPrice()
+    {
+        return $this->price;
+    }
+
 
 }
