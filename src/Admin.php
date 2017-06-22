@@ -13,8 +13,25 @@
 //Administrator powinien mieć możliwość wysyłania wiadomości.
 //
 //Dodaj do klasy User funkcje, które zwracają wszystkie wysłane do niego wiadomości.
+//
 
+//
 Class Admin
 {
+    private $name;
+    private $email;
+    private $password;
+    
+    private function changeOrder()
+    {
+        
+    }
+    
+    private function removeCustomer()
+    {
+        
+    }
+    
+    
 
 }
