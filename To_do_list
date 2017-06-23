@@ -17,10 +17,10 @@ HTML
     Strona przedmiotu - product
     Strona koszyka - basket
     Panel administracyjny  - admin -(zarządzanie grupami, przedmiotami użytkownikami, zamówieniami)
-    dodawanie i usuwanie grup dla przedmiotów
-    dodanie lub usunięcie przedmiotu
-    zobaczenie użytkownika, jego zakupów, usunięcie użytkownikami
-    podgląd zamówienia(grupowanie statusem), zmiana statusu zamówienia, usunąć dane zamówienia, wysłać do klienta wiadomość dot jego zamówienia
+        dodawanie i usuwanie grup dla przedmiotów
+        dodanie lub usunięcie przedmiotu
+        zobaczenie użytkownika, jego zakupów, usunięcie użytkownikami
+        podgląd zamówienia(grupowanie statusem), zmiana statusu zamówienia, usunąć dane zamówienia, wysłać do klienta wiadomość dot jego zamówienia
 
 Do zrobienia
 

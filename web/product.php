@@ -1,7 +1,14 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: barbara
- * Date: 21.06.17
- * Time: 16:21
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Register </title>
+</head>
+<body>
+<a href="index.php"> Homepage </a>
+<br>
+<h3>
+
+</h3>
+</body>
+</html>/
