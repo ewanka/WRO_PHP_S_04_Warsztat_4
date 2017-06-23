@@ -1,5 +1,5 @@
 <?php
-require_once '../MySQLConnection.php';
+//require_once '../MySQLConnection.php';
 
 //Stwórz (w katalogu /src) klasę dla użytkownika.
 //
@@ -17,12 +17,13 @@ Class Customer
     private $password;
     private $shippingAddress;
 
-    public function __construct($name, $surname, $email, $id = null) //czy password w constructorze
+    public function __construct($name, $surname, $email, $password, $id = null) 
     {
         $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
+        $this->password = $password;
     }
 
     public function getName()
@@ -112,27 +113,13 @@ Class Customer
 
     
 
-    private function login($password, $email)
+    public function login($password, $email)
     {
-        connectDB();
-        if ($_POST === ['REQUEST_METHOD']) {
-
-            if (!isset($_POST['password']) && !isset($_POST['username'])) {
-                echo 'Enter proper username and password';
-                
-                return false;
-            } else {
-                
-                $dbPassword; //= SELECT id FROM `customers` ;
-                $dbUsername;
-                
-                if (($_POST['password'] === $dbPassword) && ($_POST['username'] === $dbUsername)) {
-                    echo 'Logged in'; // przekierowanie do strony...?
+       
                     
-                    return true;
-                }
-            }
-        }
+                    return $email === $this->email 
+                && $password === $this->password;
+    
     }
 
 }
