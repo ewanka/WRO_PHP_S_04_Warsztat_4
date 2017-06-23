@@ -1,5 +1,5 @@
 <?php
-require_once 'conn.php';
+require_once '../MySQLConnection.php';
 
 //Stwórz (w katalogu /src) klasę dla użytkownika.
 //
@@ -123,7 +123,7 @@ Class Customer
                 return false;
             } else {
                 
-                $dbPassword = SELECT id FROM `customers` ;
+                $dbPassword; //= SELECT id FROM `customers` ;
                 $dbUsername;
                 
                 if (($_POST['password'] === $dbPassword) && ($_POST['username'] === $dbUsername)) {
