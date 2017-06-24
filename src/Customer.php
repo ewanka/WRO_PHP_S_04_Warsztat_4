@@ -1,5 +1,7 @@
 <?php
-//require_once '../MySQLConnection.php';
+
+require_once '../MySQLConnection.php';
+require_once 'Admin.php';
 
 //Stwórz (w katalogu /src) klasę dla użytkownika.
 //
@@ -17,13 +19,13 @@ Class Customer
     private $password;
     private $shippingAddress;
 
-    public function __construct($name, $surname, $email, $password, $id = null) 
+    public function __construct()
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->email = $email;
-        $this->password = $password;
+        $this->id = -1;
+        $this->name = "";
+        $this->surname = "";
+        $this->email = "";
+        $this->password = "";
     }
 
     public function getName()
@@ -72,21 +74,22 @@ Class Customer
         $result = $conn->query('SELECT * FROM `customers` JOIN `orders`
             ON customers.customer_id=orders.customer_id '); //join where customer_id = ?
     }
-    
+
     public function saveToDB(PDO $conn)
     {
-         if ($this->id == -1) { //
+        if (!null($_POST === ['REQUEST_METHOD']) && !empty($_POST["register_name"])){
+            
+        if ($this->id == -1) { //ustawić id = -1 w constructor
             $sql = "INSERT INTO `customers` (name, surname, email, password, shipping_address) VALUES (:name, :surname :email, :password, :shipping_address)";
 
             $stmt = $conn->prepare($sql);
 
             $stmt->execute([
                 ':name' => $this->name,
-                ':surname'=> $this->surname,
+                ':surname' => $this->surname,
                 ':email' => $this->email,
                 ':password' => $this->password,
-                ':shipping_address'=> $this->shippingAddress
-                    
+                ':shipping_address' => $this->shippingAddress
             ]);
 
             $this->id = $conn->lastInsertId();
@@ -94,32 +97,46 @@ Class Customer
             return true;
         }
         else {
-            
-            $sql = "UPDATE `customers` SET name=:name, surname=:surname, email=:email,
+
+            $sql = "UPDATE customers SET name=:name, surname=:surname, email=:email,
                     password=:password, shipping_address=:shipping_address WHERE id=:id";
 
             $stmt = $conn->prepare($sql);
 
             return $stmt->execute([
                         ':name' => $this->name,
-                        ':surname'=> $this->surname,
+                        ':surname' => $this->surname,
                         ':email' => $this->email,
                         ':password' => $this->password,
-                        ':shipping_address'=> $this->shippingAddress,
+                        ':shipping_address' => $this->shippingAddress,
                         ':id' => $this->id,
             ]);
         }
+        }  
     }
-
-    
 
     public function login($password, $email)
     {
-       
-                    
-                    return $email === $this->email 
-                && $password === $this->password;
-    
+        // connectDB();
+        //if ($_POST === ['REQUEST_METHOD']) {
+        // if (!isset($_POST['password']) && !isset($_POST['email'])) {
+        //echo 'Enter proper username and password';
+        //return false;
+        // } else {
+        //$dbPassword; //= SELECT id FROM `customers` ;
+        //$dbUsername;
+        // if (($_POST['password'] === 'password') && ($_POST['email'] === 'email')) {
+        //  echo 'Logged in'; // przekierowanie do strony...?
+
+        return $email === $this->email && $password === $this->password;
+        // }
+        //}
+        // }
+    }
+
+    public function receiveMessageFromAdmin()
+    {
+        return;
     }
 
 }
